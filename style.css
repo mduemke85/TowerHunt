@@ -11,7 +11,7 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   font-size: clamp(1rem, min(3vw, 3vh), min(4vw, 4vh));
-  font-family: sans-serif;
+  /*   font-family: sans-serif; */
   font-weight: bolder;
   overflow-wrap: anywhere;
   word-break: break-all;
