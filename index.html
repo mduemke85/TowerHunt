@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tower Stack</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer type="module"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box1">
+            <div><a href="#about">&#x2139</a></div>
+            <div><a href="#settings">&#x2699</a></div>
+            <div><a href="#appData">&#x1F5C4</a></div>
+            <div><input type="button" name="restart" value="&#x27F3" id="buttonRestart" /></div>
+            <div>
+                <form id="formChoose">
+                    <fieldset form="formChoose">
+                        <legend>start</legend>
+                        <input form="formChoose" type="radio" name="gameStart" value="bot" id="inputStartBot" />
+                        <label for="inputStartBot">&#x1F916</label>
+                        <input form="formChoose" type="radio" name="gameStart" value="user" id="inputStartUser" checked
+                            required />
+                        <label for="inputStartUser">&#x1F464</label>
+                    </fieldset>
+                </form>
+            </div>
+            <div><input type="button" name="play" value="&#x23F5" id="buttonPlay" /></div>
+        </div>
+        <div class="box2">box2</div>
+        <div class="box3" id="board"></div>
+        <div class="box9">box9</div>
+        <div class="boxA">boxA</div>
+    </div>
+</body>
+
+</html>
