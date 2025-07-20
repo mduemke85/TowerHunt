@@ -1,5 +1,16 @@
-function createBoard(board, board_size) {
+import {
+  createIconSidebarVault,
+  createIconSidebarZone,
+  createSvgTowerVector,
+} from "./modules/SvgRender.js";
+
+function createBoard(board, board_size, svgElement) {
   const fragment = document.createDocumentFragment();
+  const securedBotSvg = document
+    .getElementById("securedBotSvg")
+    .cloneNode(true);
+  securedBotSvg.classList.remove("icon");
+  securedBotSvg.classList.add("boardIcon");
   // Create the board using a document fragment for better performance
   for (let i = 0; i < board_size; i++) {
     const cell1 = document.createElement("div");
@@ -8,12 +19,20 @@ function createBoard(board, board_size) {
     const cell4 = document.createElement("div");
     const cell5 = document.createElement("div");
     const cell6 = document.createElement("div");
-    cell1.innerHTML = "cell1";
-    cell2.innerHTML = "cell2";
-    cell3.innerHTML = "cell3";
-    cell4.innerHTML = "cell4";
-    cell5.innerHTML = "cell5";
-    cell6.innerHTML = "cell6";
+    if ((i === 0) | (i === board_size - 1)) {
+      cell1.appendChild(securedBotSvg.cloneNode(true));
+      cell2.appendChild(securedBotSvg.cloneNode(true));
+      cell3.appendChild(securedBotSvg.cloneNode(true));
+      cell4.appendChild(securedBotSvg.cloneNode(true));
+      cell5.appendChild(securedBotSvg.cloneNode(true));
+      cell6.appendChild(securedBotSvg.cloneNode(true));
+    }
+    cell1.appendChild(svgElement.cloneNode(true));
+    cell2.appendChild(svgElement.cloneNode(true));
+    cell3.appendChild(svgElement.cloneNode(true));
+    cell4.appendChild(svgElement.cloneNode(true));
+    cell5.appendChild(svgElement.cloneNode(true));
+    cell6.appendChild(svgElement.cloneNode(true));
     fragment.appendChild(cell1);
     fragment.appendChild(cell2);
     fragment.appendChild(cell3);
@@ -33,6 +52,12 @@ function createBoard(board, board_size) {
       cell4.classList.add("dark");
       cell5.classList.add("light");
       cell6.classList.add("dark");
+      cell1.querySelector(".tower_red").classList.remove("svgHide");
+      cell2.querySelector(".tower_blue").classList.remove("svgHide");
+      cell3.querySelector(".tower_red").classList.remove("svgHide");
+      cell4.querySelector(".tower_blue").classList.remove("svgHide");
+      cell5.querySelector(".tower_red").classList.remove("svgHide");
+      cell6.querySelector(".tower_blue").classList.remove("svgHide");
     } else {
       cell1.classList.add("dark");
       cell2.classList.add("light");
@@ -40,6 +65,12 @@ function createBoard(board, board_size) {
       cell4.classList.add("light");
       cell5.classList.add("dark");
       cell6.classList.add("light");
+      cell1.querySelector(".tower_blue_dot").classList.remove("svgHide");
+      cell2.querySelector(".tower_red_dot").classList.remove("svgHide");
+      cell3.querySelector(".tower_blue_dot").classList.remove("svgHide");
+      cell4.querySelector(".tower_red_dot").classList.remove("svgHide");
+      cell5.querySelector(".tower_blue_dot").classList.remove("svgHide");
+      cell6.querySelector(".tower_red_dot").classList.remove("svgHide");
     }
   }
   board.appendChild(fragment);
@@ -47,5 +78,12 @@ function createBoard(board, board_size) {
 
 window.addEventListener("DOMContentLoaded", () => {
   const board = document.getElementById("board");
-  createBoard(board, 6);
+  const svgElement = createSvgTowerVector();
+  createBoard(board, 6, svgElement);
+  const securedTowerBot = document.querySelector(".securedTowerBot");
+  securedTowerBot.appendChild(createIconSidebarZone().cloneNode(true));
+  const vaultBlueBot = document.querySelector(".vaultBlueBot");
+  const vaultRedBot = document.querySelector(".vaultRedBot");
+  vaultBlueBot.appendChild(createIconSidebarVault("blue").cloneNode(true));
+  vaultRedBot.appendChild(createIconSidebarVault("red").cloneNode(true));
 });
