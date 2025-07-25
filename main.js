@@ -28,6 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
   if (document.startViewTransition) {
+    document.getElementById("home").classList.remove("sectHide");
     document.getElementById("home").classList.add(".sectShow");
   }
   window.location.hash = "home";
