@@ -1,4 +1,4 @@
-const sectMap = new WeakMap();
+const sectMap = new Map();
 
 function initEventHandlers() {
   window.addEventListener("click", (event) => {
