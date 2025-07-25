@@ -39,29 +39,29 @@ section#settings {
 
 /* Default animation (cross-fade) */
 ::view-transition-old(root) {
-  animation: move-out 1s ease forwards;
+  animation: move-out 1s cubic-bezier(0.4, 0, 1, 1);
 }
 ::view-transition-new(root) {
-  animation: move-in 1s ease forwards;
+  animation: move-in 1s cubic-bezier(0, 0, 0.2, 1);
 }
 
 @keyframes move-out {
   from {
-    /*     transform: translateX(0%); */
+    transform: translateX(0%);
     opacity: 1;
   }
   to {
-    /*     transform: translateX(-100%); */
+    transform: translateX(-100%);
     opacity: 0;
   }
 }
 @keyframes move-in {
   from {
-    /*     transform: translateX(-100%); */
+    transform: translateX(-100%);
     opacity: 0;
   }
   to {
-    /*     transform: translateX(0%); */
+    transform: translateX(0%);
     opacity: 1;
   }
 }
