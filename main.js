@@ -1,3 +1,5 @@
+const sectMap = new WeakMap();
+
 function initEventHandlers() {
   window.addEventListener("click", (event) => {
     let link = event.target.closest(".linkNav");
@@ -20,15 +22,18 @@ function initEventHandlers() {
           element.classList.remove("sectShow");
         }
       });
-      link.classList.add("sectShow");
-      link.classList.remove("sectHide");
-      window.location.hash = new URL(link.href).hash.substring(1);
+      const fragment = new URL(link.href).hash.substring(1);
+      const sect = sectMap.get(fragment);
+      sect.classList.remove("sectHide");
+      sect.classList.add("sectShow");
+      window.location.hash = fragment;
     });
   });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".sect").forEach((element) => {
+    sectMap.set(element.id, element);
     if (!document.startViewTransition) {
       element.classList.add("sectFallback");
     } else {
