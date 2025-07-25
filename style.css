@@ -31,7 +31,6 @@ section#settings {
 
 .sectHide {
   display: none;
-  /*view-transition-name: section-content;*/
 }
 
 .sectShow {
