@@ -14,7 +14,7 @@ function initEventHandlers() {
 
     // Use the View Transition API
     document.startViewTransition(() => {
-      window.location.assign(link.href);
+      window.location.hash = new URL(link.href).hash.substring(1);
     });
   });
 }
