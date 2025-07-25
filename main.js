@@ -8,23 +8,30 @@ function initEventHandlers() {
 
     if (!document.startViewTransition) {
       // Fallback for browsers without support: directly update hash
-      console.log("view transition fallback" + window.location.hash);
-      window.location.assign(link.href);
+      console.log("view transition fallback");
       return;
     }
 
     // Use the View Transition API
     document.startViewTransition(() => {
-      // Inside this callback, perform the DOM change that triggers the new state.
-      // In this case, updating window.location.hash IS the DOM change that
-      // makes the :target selector apply to a different section.
       window.location.assign(link.href);
     });
   });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".sect").forEach((element) => {
+    if (!document.startViewTransition) {
+      element.classList.add("sectFallback");
+    } else {
+      element.classList.add("sectHide");
+    }
+  });
+  if (document.startViewTransition) {
+    document.getElementById("home").classList.add(".sectShow");
+  }
   window.location.hash = "home";
+
   initEventHandlers();
   /*   const about = document.querySelector("section:target");
   about.querySelectorAll("a").forEach((elem) => {

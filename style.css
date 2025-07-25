@@ -7,15 +7,6 @@ body {
   padding: 0;
 }
 
-section {
-  display: none;
-  view-transition-name: section-content;
-}
-
-section:target {
-  display: block;
-}
-
 section#home > nav > ul {
   display: flex;
   width: auto;
@@ -30,12 +21,29 @@ section#settings {
   height: 100vh;
 }
 
+.sectFallback {
+  display: none;
+}
+
+.sectFallback:target {
+  display: block;
+}
+
+.sectHide {
+  display: none;
+  /*view-transition-name: section-content;*/
+}
+
+.sectShow {
+  display: block;
+}
+
 /* Default animation (cross-fade) */
 ::view-transition-old(root) {
-  animation: fade-out 0.5s ease;
+  animation: fade-out 2s ease;
 }
 ::view-transition-new(root) {
-  animation: fade-in 0.5s ease;
+  animation: fade-in 2s ease;
 }
 
 @keyframes fade-out {
