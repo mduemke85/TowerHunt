@@ -39,25 +39,25 @@ section#settings {
 
 /* Default animation (cross-fade) */
 ::view-transition-old(root) {
-  animation: move-out 2s ease 0s 1 alternate-reverse;
+  animation: move-out 2s ease;
 }
 ::view-transition-new(root) {
-  animation: move-in 2s ease 0s 1 alternate-reverse;
+  animation: move-in 2s ease;
 }
 
 @keyframes move-out {
   from {
-    transform: translateY(0%);
+    transform: translateX(0%);
   }
   to {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
   }
 }
 @keyframes move-in {
   from {
-    transform: translateY(100%);
+    transform: translateX(-100%);
   }
   to {
-    transform: translateY(0%);
+    transform: translateX(0%);
   }
 }
