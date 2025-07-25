@@ -39,10 +39,10 @@ section#settings {
 
 /* Default animation (cross-fade) */
 ::view-transition-old(root) {
-  animation: move-out 2s ease;
+  animation: move-out 2s ease 0s 1 alternate-reverse;
 }
 ::view-transition-new(root) {
-  animation: move-in 2s ease;
+  animation: move-in 2s ease 0s 1 alternate-reverse;
 }
 
 @keyframes move-out {
