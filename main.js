@@ -14,6 +14,14 @@ function initEventHandlers() {
 
     // Use the View Transition API
     document.startViewTransition(() => {
+      document.querySelectorAll(".sect").forEach((element) => {
+        {
+          element.classList.add("sectHide");
+          element.classList.remove("sectShow");
+        }
+      });
+      link.classList.add("sectShow");
+      link.classList.remove("sectHide");
       window.location.hash = new URL(link.href).hash.substring(1);
     });
   });
